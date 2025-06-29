@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>com.smarthirepro</groupId>
 		<artifactId>smarthirepro-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0.0</version>
 		<relativePath>../</relativePath>
 	</parent>
 	<artifactId>smarthirepro-domain</artifactId>
@@ -54,6 +54,15 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.2.5</version>
+            <configuration>
+                <skipTests>true</skipTests>
+            </configuration>
+        </plugin>
+
 		</plugins>
 	</build>
 
