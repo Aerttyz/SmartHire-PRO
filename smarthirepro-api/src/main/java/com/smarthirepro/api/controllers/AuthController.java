@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smarthirepro.core.dto.AuthDto;
-import com.smarthirepro.core.service.AuthService;
+import com.smarthirepro.core.service.impl.AuthService;
 import com.smarthirepro.domain.model.Empresa;
 
 import jakarta.validation.Valid;
