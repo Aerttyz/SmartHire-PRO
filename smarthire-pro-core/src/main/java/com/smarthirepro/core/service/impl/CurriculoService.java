@@ -2,6 +2,7 @@ package com.smarthirepro.core.service.impl;
 
 import com.smarthirepro.core.exception.EmptyPathException;
 import com.smarthirepro.core.exception.FileProcessingException;
+import com.smarthirepro.core.service.ICurriculoService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,7 +18,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 @Service
-public class CurriculoService {
+public class CurriculoService implements ICurriculoService {
   private final RestTemplate restTemplate = new RestTemplate();
   private final String flaskUrl = "http://localhost:5000/extract_entities";
 
