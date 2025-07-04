@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import com.smarthirepro.domain.model.CargoGenerico;
 
-public interface CargoRepository {
+public interface CargoRepository<T extends CargoGenerico> {
 
-    Optional<CargoGenerico> findById(UUID id);
+    Optional<T> findById(UUID id);
 }
