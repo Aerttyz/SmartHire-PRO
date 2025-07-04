@@ -1,4 +1,4 @@
-package com.smarthirepro.core.service;
+package com.smarthirepro.core.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
