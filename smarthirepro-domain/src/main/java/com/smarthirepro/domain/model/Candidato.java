@@ -1,19 +1,21 @@
 package com.smarthirepro.domain.model;
 
-import jakarta.persistence.ElementCollection;
+import java.util.UUID;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -21,7 +23,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class CurriculoGenerico {
+@Table(name = "candidato")
+public class Candidato {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   @EqualsAndHashCode.Include
@@ -33,12 +36,16 @@ public class CurriculoGenerico {
 
   private String telefone;
 
-  private String experiencia;
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "curriculo_id")
+  private Curriculo curriculo;
 
-  @ElementCollection
-  private List<String> formacaoAcademica = new ArrayList<>();
+  @ManyToOne
+  @JoinColumn(name = "cargo_id")
+  private CargoGenerico cargo;
 
-  @ElementCollection
-  private List<String> habilidades = new ArrayList<>();
+  public void updateEmail(String novoEmail) {
+    this.email = novoEmail;
+  }
 
 }

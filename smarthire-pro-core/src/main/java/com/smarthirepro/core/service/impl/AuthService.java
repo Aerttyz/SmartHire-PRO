@@ -1,6 +1,5 @@
 package com.smarthirepro.core.service.impl;
 
-import com.smarthirepro.core.service.IAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -16,7 +15,7 @@ import com.smarthirepro.domain.model.Empresa;
 import com.smarthirepro.domain.repositories.EmpresaRepository;
 
 @Service
-public class AuthService implements IAuthService {
+public class AuthService {
 
     @Autowired
     private AuthenticationManager authenticationManager;
