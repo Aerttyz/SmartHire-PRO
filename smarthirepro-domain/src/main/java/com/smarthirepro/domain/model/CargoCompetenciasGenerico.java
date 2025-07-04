@@ -30,4 +30,5 @@ public abstract class CargoCompetenciasGenerico {
     private String habilidades;
     private String formacaoAcademica;
     private String experiencia;
+    private String idiomas;
 }
