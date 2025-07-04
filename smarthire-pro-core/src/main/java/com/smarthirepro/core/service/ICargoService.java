@@ -4,6 +4,6 @@ import java.util.UUID;
 
 import com.smarthirepro.domain.model.CargoGenerico;
 
-public interface ICargoService {
-    CargoGenerico listarPorId(UUID id);
+public interface ICargoService<T extends CargoGenerico> {
+    T listarPorId(UUID id);
 }

@@ -13,10 +13,10 @@ import com.smarthirepro.domain.model.Curriculo;
 import com.smarthirepro.domain.repositories.CandidatoRepository;
 
 @Service
-public class CandidatoService {
+public class CandidatoService<T extends Candidato> {
 
     @Autowired
-    private ICargoService cargoService;
+    private ICargoService<? extends CargoGenerico> cargoService;
 
     @Autowired
     private CandidatoRepository candidatoRepository;
