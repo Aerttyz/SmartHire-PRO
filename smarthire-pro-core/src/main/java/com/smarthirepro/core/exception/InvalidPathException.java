@@ -1,11 +1,9 @@
 package com.smarthirepro.core.exception;
 
-public class InvalidPathException extends RuntimeException {
-    public InvalidPathException() {
-        super("O caminho passado é inválido");
-    }
+import org.springframework.http.HttpStatus;
 
-    public InvalidPathException(String message) {
-        super(message);
+public class InvalidPathException extends FrameworkBaseException {
+    public InvalidPathException() {
+        super("O caminho fornecido é inválido.", HttpStatus.BAD_REQUEST);
     }
 }

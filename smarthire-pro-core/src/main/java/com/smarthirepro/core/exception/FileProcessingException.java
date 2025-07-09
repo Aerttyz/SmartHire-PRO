@@ -1,7 +1,9 @@
 package com.smarthirepro.core.exception;
 
-public class FileProcessingException extends RuntimeException {
+import org.springframework.http.HttpStatus;
+
+public class FileProcessingException extends FrameworkBaseException {
   public FileProcessingException(String message) {
-    super(message);
+    super(message, HttpStatus.BAD_REQUEST);
   }
 }
