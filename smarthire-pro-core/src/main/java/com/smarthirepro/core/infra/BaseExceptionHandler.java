@@ -44,11 +44,18 @@ public class BaseExceptionHandler {
         return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).body(response);
     }
 
-    @ExceptionHandler({ExpiredJwtException.class, MalformedJwtException.class, UnsupportedJwtException.class, IllegalArgumentException.class})
+    @ExceptionHandler({ExpiredJwtException.class, MalformedJwtException.class, UnsupportedJwtException.class})
     public ResponseEntity<BaseErrorMessage> jwtExceptionHandler(Exception ex) {
         logger.error("Erro de Token JWT: {}", ex.getMessage());
         BaseErrorMessage response = new BaseErrorMessage(HttpStatus.UNAUTHORIZED, "Token inválido, expirado ou malformado.");
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<BaseErrorMessage> illegalArgumentHandler(IllegalArgumentException ex) {
+        logger.error("Token JWT inválido ou ausente: ", ex);
+        BaseErrorMessage treatedResponse = new BaseErrorMessage(HttpStatus.UNAUTHORIZED, "Token JWT inválido ou ausente.");
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(treatedResponse);
     }
 
     @ExceptionHandler(MailException.class)
