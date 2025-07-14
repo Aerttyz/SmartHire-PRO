@@ -1,7 +1,9 @@
 package com.smarthirepro.core.exception;
 
-public class BusinessRuleException extends RuntimeException {
+import org.springframework.http.HttpStatus;
+
+public class BusinessRuleException extends BusinessBaseException {
     public BusinessRuleException(String message) {
-        super(message);
+        super(message, HttpStatus.BAD_REQUEST);
     }
 }

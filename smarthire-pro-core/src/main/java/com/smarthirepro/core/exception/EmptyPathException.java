@@ -1,11 +1,9 @@
 package com.smarthirepro.core.exception;
 
-public class EmptyPathException extends RuntimeException {
-    public EmptyPathException() {
-        super("O caminho é obrigatório");
-    }
+import org.springframework.http.HttpStatus;
 
-    public EmptyPathException(String message) {
-        super(message);
+public class EmptyPathException extends FrameworkBaseException {
+    public EmptyPathException() {
+        super("O caminho é obrigatório.", HttpStatus.BAD_REQUEST);
     }
 }

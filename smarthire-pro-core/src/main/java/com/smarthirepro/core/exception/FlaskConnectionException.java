@@ -1,11 +1,13 @@
 package com.smarthirepro.core.exception;
 
-public class FlaskConnectionException extends RuntimeException {
+import org.springframework.http.HttpStatus;
+
+public class FlaskConnectionException extends FrameworkBaseException {
     public FlaskConnectionException() {
-        super("Conexão com o serviço Flask falhou");
+        super("Falha na comunicação com o serviço de análise.", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     public FlaskConnectionException(String message) {
-        super(message);
+        super(message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

@@ -1,11 +1,9 @@
 package com.smarthirepro.core.exception;
 
-public class PersistenceException extends RuntimeException {
-    public PersistenceException() {
-        super("Erro de persistência de dados");
-    }
+import org.springframework.http.HttpStatus;
 
+public class PersistenceException extends FrameworkBaseException {
     public PersistenceException(String message) {
-        super(message);
+        super(message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
