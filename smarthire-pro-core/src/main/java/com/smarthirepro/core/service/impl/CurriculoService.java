@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
@@ -146,7 +147,7 @@ public class CurriculoService {
     }
 
     try {
-      Path sharedDir = Path.of("C:\\Users\\alesa\\OneDrive\\Documentos\\Programas");
+      Path sharedDir = Paths.get("");
       if (!Files.exists(sharedDir)) {
         Files.createDirectories(sharedDir);
       }
@@ -174,8 +175,8 @@ public class CurriculoService {
       if (nomeOriginal != null && nomeOriginal.toLowerCase().endsWith(".zip")) {
         nomeOriginal = nomeOriginal.replaceFirst("(?i)\\.zip$", "");
       }
-      System.out.println("Currículo extraído para: " + tempDir.toString());
-      return tempDir.toString();
+      System.out.println("Currículo extraído para: " + tempDir.toAbsolutePath().toString());
+      return tempDir.toAbsolutePath().toString();
     } catch (IOException e) {
       throw new FileProcessingException("Erro ao processar arquivos");
     }
