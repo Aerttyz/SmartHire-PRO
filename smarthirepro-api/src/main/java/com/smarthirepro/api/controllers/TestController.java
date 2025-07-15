@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.smarthirepro.api.dtos.AvaliacaoTestDto;
+import com.smarthirepro.api.services.AvaliacaoTest;
 import com.smarthirepro.core.service.impl.CurriculoService;
 import com.smarthirepro.domain.model.Curriculo;
 
@@ -21,6 +23,8 @@ public class TestController {
 
     @Autowired
     private CurriculoService curriculoService;
+    @Autowired
+    private AvaliacaoTest avaliacaoTest;
 
     @PostMapping("/analisar-curriculos/{idVaga}")
     public ResponseEntity<?> analisarCurriculos(@PathVariable("idVaga") UUID idVaga,
@@ -30,6 +34,12 @@ public class TestController {
 
         List<Curriculo> result = curriculoService.salvarCurriculo(path, idVaga);
         return ResponseEntity.ok(result);
+    }
+
+    @PostMapping("/testa/{cargoId}/{candidatoId}")
+    public ResponseEntity<AvaliacaoTestDto> testa(@PathVariable("cargoId") UUID cargoId,
+            @PathVariable("candidatoId") UUID candidatoId) {
+        return ResponseEntity.ok(avaliacaoTest.realizarAvaliacao(cargoId, candidatoId));
     }
 
 }
