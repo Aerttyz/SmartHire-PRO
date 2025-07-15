@@ -53,9 +53,9 @@ public class BaseExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<BaseErrorMessage> illegalArgumentHandler(IllegalArgumentException ex) {
-        logger.error("Token JWT inválido ou ausente: ", ex);
-        BaseErrorMessage treatedResponse = new BaseErrorMessage(HttpStatus.UNAUTHORIZED, "Token JWT inválido ou ausente.");
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(treatedResponse);
+        logger.error("Erro de argumento inválido: ", ex);
+        BaseErrorMessage treatedResponse = new BaseErrorMessage(HttpStatus.BAD_REQUEST, "Requisição inválida. Verifique os parâmetros informados.");
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(treatedResponse);
     }
 
     @ExceptionHandler(MailException.class)
