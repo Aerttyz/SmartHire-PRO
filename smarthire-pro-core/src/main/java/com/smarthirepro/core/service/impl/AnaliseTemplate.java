@@ -9,8 +9,7 @@ public abstract class AnaliseTemplate<T extends CargoGenerico> {
 
     public final String runAnalise(UUID cargoId) {
         List<String> criterios = definirCriterios(cargoId);
-        String resultado = executarAnalise(cargoId, criterios);
-        return criarRelatorio(resultado);
+        return executarAnalise(cargoId, criterios);
 
     }
 
@@ -18,5 +17,4 @@ public abstract class AnaliseTemplate<T extends CargoGenerico> {
 
     protected abstract String executarAnalise(UUID cargoId, List<String> criterios);
 
-    protected abstract String criarRelatorio(String resultado);
 }
